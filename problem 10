@@ -1,0 +1,12 @@
+module Codewars.Kata.Which where
+
+import Data.List (sort, isInfixOf, nub)
+
+inArray :: [String] -> [String] -> [String]
+inArray a1 a2 = sort (nub (filter (`isSubstringInAny` a2) a1))
+
+isSubstringInAny :: String -> [String] -> Bool
+isSubstringInAny substr [] = False
+isSubstringInAny substr (x:xs)
+  | substr `isInfixOf` x = True
+  | otherwise = isSubstringInAny substr xs
