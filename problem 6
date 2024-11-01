@@ -1,0 +1,14 @@
+module DescendingOrder where
+
+descendingOrder :: Integer -> Integer
+descendingOrder n = read (sortDesc (show n))
+
+sortDesc :: String -> String
+sortDesc [] = []
+sortDesc (x:xs) = insertDesc x (sortDesc xs)
+
+insertDesc :: Char -> String -> String
+insertDesc x [] = [x]
+insertDesc x (y:ys)
+  | x > y     = x : y : ys
+  | otherwise = y : insertDesc x ys
