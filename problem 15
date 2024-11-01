@@ -1,0 +1,10 @@
+module Section (section) where
+
+section :: Int -> [Int] -> Maybe Int
+section scrollY sizes = findSection scrollY sizes 0 0
+
+findSection :: Int -> [Int] -> Int -> Int -> Maybe Int
+findSection scrollY [] _ _ = Nothing
+findSection scrollY (size:rest) index currentHeight
+  | scrollY < currentHeight + size = Just index
+  | otherwise = findSection scrollY rest (index + 1) (currentHeight + size)
