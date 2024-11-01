@@ -1,0 +1,15 @@
+module Codewars.Kata.Compare where
+
+comp :: [Integer] -> [Integer] -> Bool
+comp [] [] = True
+comp [] _ = False
+comp _ [] = False
+comp (a:as) b = if elem n b then comp as (remove b n) else False
+  where
+    n = a*a
+    
+remove :: [Integer] -> Integer -> [Integer]
+remove [] _ = []
+remove (x:xs) n
+  | x == n = xs
+  | x /= n = x:(remove xs n)
