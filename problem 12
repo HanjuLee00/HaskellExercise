@@ -1,0 +1,11 @@
+module AddingUpLetters (addLetters) where
+
+addLetters :: [Char] -> Char
+addLetters [] = 'z'
+addLetters letters = toLetter (sum (map toNumber letters))
+
+toNumber :: Char -> Int
+toNumber c = fromEnum c - fromEnum 'a' + 1
+
+toLetter :: Int -> Char
+toLetter n = toEnum ((n - 1) `mod` 26 + fromEnum 'a')
