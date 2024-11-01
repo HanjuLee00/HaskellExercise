@@ -1,0 +1,12 @@
+module MenBoys (menFromBoys) where
+
+import Data.List (nub, sort)
+
+menFromBoys :: [Int] -> [Int]
+menFromBoys xs = evensSorted ++ oddsSorted
+  where
+    uniqueXs = nub xs
+    evens = filter (\x -> x `mod` 2 == 0) uniqueXs
+    odds = filter (\x -> x `mod` 2 /= 0) uniqueXs
+    evensSorted = sort evens
+    oddsSorted = reverse (sort odds)
