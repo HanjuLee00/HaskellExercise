@@ -1,0 +1,14 @@
+module Codewars.Kata.DNA where
+import Codewars.Kata.DNA.Types
+
+type DNA = [Base]
+
+dnaStrand :: DNA -> DNA
+dnaStrand [] = []
+dnaStrand (x:xs) = change x : dnaStrand xs
+
+change :: Base -> Base
+change A = T
+change T = A
+change G = C
+change C = G
