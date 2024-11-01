@@ -1,0 +1,10 @@
+module MultiplesOf3And5 where
+
+getNumbersBelow :: Integer -> [Integer]
+getNumbersBelow x = [1..x-1]
+
+getMultiplies :: Integer -> [Integer]
+getMultiplies x = [y | y <- getNumbersBelow x, y `mod` 3 == 0 || y `mod` 5 == 0]
+
+solution :: Integer -> Integer
+solution number = sum (getMultiplies number)
