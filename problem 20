@@ -1,0 +1,4 @@
+module MissingNumber where
+
+missingNo :: [Int] -> Int
+missingNo xs = head [x| x <- [0..100], not (x `elem` xs)]
