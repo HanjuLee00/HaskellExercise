@@ -1,0 +1,18 @@
+module Codewars.G964.Accumule where
+
+import Data.Char (toUpper, toLower)
+
+accum :: [Char] -> [Char]
+accum s = concatWithHyphen (addRepetitions s 0)
+
+addRepetitions :: [Char] -> Int -> [String]
+addRepetitions [] _ = []
+addRepetitions (x:xs) n = makeRepeatedString x n : addRepetitions xs (n + 1)
+
+makeRepeatedString :: Char -> Int -> String
+makeRepeatedString c n = toUpper c : replicate n (toLower c)
+
+concatWithHyphen :: [String] -> String
+concatWithHyphen [] = []
+concatWithHyphen [x] = x
+concatWithHyphen (x:xs) = x ++ "-" ++ concatWithHyphen xs
