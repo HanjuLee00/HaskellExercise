@@ -1,0 +1,11 @@
+module Codewars.G964.Title2Nb where 
+
+titleToNb :: String -> Integer
+titleToNb title = convert title 0
+
+convert :: String -> Integer -> Integer
+convert [] acc = acc
+convert (x:xs) acc = convert xs (acc * 26 + charToNumber x)
+
+charToNumber :: Char -> Integer
+charToNumber c = toInteger (fromEnum c - fromEnum 'A' + 1)
