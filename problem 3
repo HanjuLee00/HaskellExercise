@@ -1,0 +1,23 @@
+module Kata where
+
+isSortedAndHow :: [Integer] -> String
+isSortedAndHow lst =
+  if ascending lst then "yes, ascending"
+  else if descending lst then "yes, descending"
+  else "no"
+
+ascending :: [Integer] -> Bool
+ascending [] = True
+ascending [x] = True
+ascending (x:y:xs) =
+  if x <= y then ascending (y:xs)
+  else False
+
+descending :: [Integer] -> Bool
+descending [] = True
+descending [x] = True
+descending (x:y:xs) =
+  if x >= y then descending (y:xs)
+  else False
+
+
