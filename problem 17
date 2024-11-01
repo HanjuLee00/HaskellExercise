@@ -1,0 +1,9 @@
+module Codewars.G964.Sumconsec where
+
+sumConsecutives :: [Int] -> [Int]
+sumConsecutives [] = []
+sumConsecutives xs = map sum (groupConsecutives xs)
+
+groupConsecutives :: [Int] -> [[Int]]
+groupConsecutives [] = []
+groupConsecutives (x:xs) = (x : takeWhile (== x) xs) : groupConsecutives (dropWhile (== x) xs)
