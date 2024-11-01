@@ -1,0 +1,12 @@
+module Codewars.Kata.FindOdd where
+
+import Data.Map (fromListWith, toList)
+
+-- | Given a list, find the [Int] that appears an 
+--   odd number of times. The tests will always
+--   provide such a number, and the list will
+--   always contain at least one element.
+findOdd :: [Int] -> Int
+findOdd  = ff . frequency where
+  frequency xs = toList (fromListWith (+) [(x, 1) | x <- xs])
+  ff (x@(y,z) : xs) = if odd z then y else ff xs
